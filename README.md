@@ -1,0 +1,1 @@
+xvfb-run -a  manimgl rnnt.py RNNTEncoderVisualization -o
