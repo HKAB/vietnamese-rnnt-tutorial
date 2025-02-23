@@ -84,7 +84,7 @@ class AudioDataset(Dataset):
         """
         assert n_mels in {80, 128}, f"Unsupported n_mels: {n_mels}"
 
-        with np.load("/wp/mel_filters.npz", allow_pickle=False) as f:
+        with np.load("./utils/mel_filters.npz", allow_pickle=False) as f:
             return torch.from_numpy(f[f"mel_{n_mels}"]).to(device)
     
     def log_mel_spectrogram(

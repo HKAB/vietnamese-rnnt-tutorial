@@ -25,7 +25,7 @@ MIN_LR = 1e-5
 
 # Tokenizer parameters
 VOCAB_SIZE = 1024
-TOKENIZER_MODEL_PATH = '/wp/tokenizer_spe_bpe_v1024_pad/tokenizer.model'
+TOKENIZER_MODEL_PATH = './utils/tokenizer_spe_bpe_v1024_pad/tokenizer.model'
 RNNT_BLANK = 1024
 PAD = 1 # tokenizer.pad_id()
 

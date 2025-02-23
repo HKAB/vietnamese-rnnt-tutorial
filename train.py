@@ -52,7 +52,7 @@ class StreamingRNNT(pl.LightningModule):
             blank=RNNT_BLANK, reduction="mean", 
         )
         # self.optimizer = torch.optim.Adam(self.parameters(), lr=1e-4, betas=(0.9, 0.98), eps=1e-9)
-        self.optimizer = torch.optim.AdamW(self.parameters(), lr=LR, betas=(0.9, 0.98), eps=1e-9, fused=True)
+        self.optimizer = torch.optim.AdamW(self.parameters(), lr=LR, betas=(0.9, 0.98), eps=1e-9)
         
     
     # https://github.com/NVIDIA/NeMo/blob/main/nemo/collections/asr/parts/submodules/rnnt_greedy_decoding.py#L416
