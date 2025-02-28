@@ -12,9 +12,9 @@ ATTENTION_CONTEXT_SIZE = (80, 3)
 
 # Path
 PRETRAINED_ENCODER_WEIGHT = './weights/small_encoder.pt'
-BG_NOISE_PATH = ["/wp/data/AudioSet", "/wp/data/musan", "/wp/data/FSDnoisy18k"]
-TRAIN_MANIFEST = ["/wp/data/dataset_commonvoice_17_vi/manifest_fixed_train_other_validated.jsonl"]
-VAL_MANIFEST = ["/wp/data/dataset_commonvoice_17_vi/manifest_fixed_train_other_validated.jsonl"]
+BG_NOISE_PATH = ["/path/to/AudioSet", "/path/to/musan", "/path/to/FSDnoisy18k"]
+TRAIN_MANIFEST = ["./data/sample.jsonl"]
+VAL_MANIFEST = ["./data/sample.jsonl"]
 LOG_DIR = './checkpoints'
 
 # Optimizer and scheduler parameters
