@@ -8,7 +8,7 @@ Welcome to the tutorial on training your own streaming RNN-T model using a state
 </div>
 <br>
 
-- **Demo 🤖**: [Check out the demo on Huggingface Spaces](https://huggingface.co/spaces/hkab/rnnt-whisper-encoder)
+- **Demo 🤖**: [Check out the demo on Huggingface Spaces](https://huggingface.co/spaces/hkab/vietnamese-rnnt-demo)
 - **Blog 📃**: [Read the detailed blog post](https://hkab.substack.com/publish/post/157867185)
 
 ## 🗂️ What's Inside
@@ -51,18 +51,18 @@ Two notebooks in the `notebooks` folder will guide you through the process.
 
 ### 📊 Performance
 
-| Model                   | WER on VIVOS (760 samples) | WER on CM17 (1274 samplse) |
-|-------------------------|--------------|-------------|
-| RNNT Offline            | 0.1497       | 0.0657      |
-| RNNT Online             | 0.1521       | 0.1354      |
-| RNNT Online ONNX (FP32) | 0.1454       | 0.1237      |
-| RNNT Online ONNX (INT8) | 0.1945       | 0.2343      |
-| Whisper-small           | 0.2389       | 0.2956(*)   |
-| Whisper-large-v3-turbo  | 0.094        | 0.1963(*)   |
+| Model                   | WER on VIVOS (760 samples) | WER on CM17 (1274 samples) |
+|-------------------------|----------------------------|----------------------------|
+| RNNT Offline            | 0.1497                     | 0.0657                     |
+| RNNT Online             | 0.1521                     | 0.1354                     |
+| RNNT Online ONNX (FP32) | 0.1454                     | 0.1237                     |
+| RNNT Online ONNX (INT8) | 0.1945                     | 0.2343                     |
+| Whisper-small           | 0.2389                     | 0.2956(*)                  |
+| Whisper-large-v3-turbo  | 0.094                      | 0.1963(*)                  |
 
 We use [Vinorm](https://github.com/v-nhandt21/Vinorm) for transcript normalization.
 
-(*) Compare `Whisper-small` and `Whisper-large-v3-turbo` with others is not fair on CM17 since it's might not be trained on CM17, but we included it anyway.
+(*) Comparing `Whisper-small` and `Whisper-large-v3-turbo` with others on CM17 is not fair since they might not be trained on CM17, but we included them anyway.
 
 ## 🤝 Contributing
 
