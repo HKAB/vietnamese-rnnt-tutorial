@@ -1,8 +1,9 @@
-# 🚀 Streaming RNN-T with Whisper Encoder
-
-[![RNNT Visualization](https://img.youtube.com/vi/v0wR5gvZDmo/0.jpg)](https://www.youtube.com/watch?v=v0wR5gvZDmo)
+# Vietnamese Streaming RNN-T
 
 Welcome to the tutorial on training your own streaming RNN-T model using a state-of-the-art encoder! In this guide, we'll walk you through the process of building a "powerful" model from scratch, without relying on complex frameworks.
+
+<img src="./media/Intro.png" alt="Efficient minimum word error rate training of RNN-transducer for end-to-end speech recognition" style="display: block; margin: auto;">
+<br>
 
 - **Demo 🤖**: [Check out the demo on Huggingface Spaces](https://huggingface.co/spaces/hkab/rnnt-whisper-encoder)
 - **Blog 📃**: [Read the detailed blog post](https://hkab.substack.com/publish/post/157867185)
@@ -14,13 +15,17 @@ This repository includes:
 - Streaming inference scripts
 - ONNX export scripts
 
-We also provide a pre-trained streaming RNN-T model, trained on 6000 hours of Vietnamese audio (1000 labeled hours and 5000 hours labeled by Whisper-v3-turbo). If you only care about the inference part, two notebooks in the `./notebooks/` folder are all you need.
+🌟 We also provide a pre-trained streaming RNN-T model, trained on 6000 hours of Vietnamese audio (1000 labeled hours and 5000 hours labeled by Whisper-v3-turbo). If you only care about the inference part, two notebooks in the `./notebooks/` folder are all you need.
 
 ## 🐋 Docker Setup
 
 To ensure compatibility, we recommend using a version of PyTorch that supports `torch.nn.functional.scaled_dot_product_attention`.
 
 ```bash
+git clone https://github.com/HKAB/rnnt-whisper-tutorial.git
+
+cd rnnt-whisper-tutorial
+
 docker build -t pl25_rnnt .
 
 docker run -itd --gpus all --net host --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 --name YOUR_DOCKER_NAME -v /path/to/local:/wp pl25_rnnt
@@ -28,12 +33,14 @@ docker run -itd --gpus all --net host --ipc=host --ulimit memlock=-1 --ulimit st
 
 ## ⚙️ Usage
 
-### 🏋️ Training
+### 🏋️ Training (Not recommend)
 
-1. **Prepare Manifests**: Create training and validation manifests in NeMo format and set their paths to `TRAIN_MANIFEST` and `VAL_MANIFEST`.
-2. **Background Noise for Augmentation**: Enhance your training data with background noise from sources like [AudioSet](https://research.google.com/audioset/download.html), [MUSAN](https://www.openslr.org/17/), and [FSDnoisy18k](https://zenodo.org/records/2529934). Set the path to these datasets in `BG_NOISE_PATH`.
-3. **Pretrained Encoder Weights**: Download the Whisper weights from [here](https://github.com/openai/whisper/blob/main/whisper/__init__.py) to `./weights` and then run `python3 export_encoder.py` to extract the encoder weight for our use. Finally, set the encoder path to `PRETRAINED_ENCODER_WEIGHT`.
-4. **Adjust Parameters**: Customize parameters related to the optimizer, scheduler, batch size, number of workers, and more to suit your needs in `constants.py`.
+Training an RNN-T model is highly GPU-intensive. To train using this repository with `BATCH_SIZE` of 32 and audio lengths of approximately 15 seconds, you will need around **50GB** of vRAM. Here are steps required before training:
+
+1. **Prepare Manifests, Tokenizer**: Create training and validation manifests in NeMo format (there is a sample at `./data/sample.jsonl`) and set their paths to `TRAIN_MANIFEST` and `VAL_MANIFEST`. Then prepare a tokenizer on your text using [sentencepiece](https://github.com/google/sentencepiece).
+2. **Prepare Background Noise for Augmentation**: Enhance your training data with background noise from sources like [AudioSet](https://research.google.com/audioset/download.html), [MUSAN](https://www.openslr.org/17/), and [FSDnoisy18k](https://zenodo.org/records/2529934). Set the path to these datasets in `BG_NOISE_PATH`.
+3. **Get Pretrained Encoder Weights**: Download the Whisper weights from [here](https://github.com/openai/whisper/blob/main/whisper/__init__.py) to `./weights` and then run `python3 export_encoder.py` to extract the encoder weight for our use. Finally, set the encoder path to `PRETRAINED_ENCODER_WEIGHT`.
+4. **Adjust Parameters**: Customize parameters related to the optimizer, scheduler, batch size, number of workers, and more to suit your needs in `constants.py`. 
 
 ### ⚡ Inference & ONNX Export
 
