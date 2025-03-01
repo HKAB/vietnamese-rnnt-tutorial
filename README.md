@@ -59,7 +59,7 @@ Two notebooks in the `notebooks` folder will guide you through the process.
 | RNNT Online ONNX (FP32) | 0.1454                     | 0.1237                     |
 | RNNT Online ONNX (INT8) | 0.1945                     | 0.2343                     |
 | Whisper-small           | 0.2389                     | 0.2956(*)                  |
-| Whisper-large-v3-turbo  | 0.094                      | 0.1963(*)                  |
+| Whisper-large-v3-turbo  | **0.094**                    | 0.1963(*)                  |
 
 We use [Vinorm](https://github.com/v-nhandt21/Vinorm) for transcript normalization.
 
