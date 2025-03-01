@@ -25,9 +25,10 @@ This repository includes:
 To ensure compatibility, we recommend using a version of PyTorch that supports `torch.nn.functional.scaled_dot_product_attention`.
 
 ```bash
-git clone https://github.com/HKAB/rnnt-whisper-tutorial.git
+git clone https://github.com/HKAB/vietnamese-rnnt-tutorial
+.git
 
-cd rnnt-whisper-tutorial
+cd vietnamese-rnnt-tutorial
 
 docker build -t pl25_rnnt .
 
@@ -36,7 +37,7 @@ docker run -itd --gpus all --net host --ipc=host --ulimit memlock=-1 --ulimit st
 
 ## ⚙️ Usage
 
-### 🏋️ Training (Not recommend)
+### 🏋️ Training
 
 Training an RNN-T model is highly GPU-intensive. To train using this repository with `BATCH_SIZE` of 32 and audio lengths of approximately 15 seconds, you will need around **50GB** of vRAM. Here are steps required before training:
 
