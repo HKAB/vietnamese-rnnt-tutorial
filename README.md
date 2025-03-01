@@ -2,7 +2,10 @@
 
 Welcome to the tutorial on training your own streaming RNN-T model using a state-of-the-art encoder! In this guide, we'll walk you through the process of building a "powerful" model from scratch, without relying on complex frameworks.
 
-<img src="./media/Intro.png" alt="Efficient minimum word error rate training of RNN-transducer for end-to-end speech recognition" style="display: block; margin: auto;">
+<div align="center">
+<img src="./media/Intro.png" alt="Efficient minimum word error rate training of RNN-transducer for end-to-end speech recognition">
+<i>Visualization of RNN-T</i>
+</div>
 <br>
 
 - **Demo 🤖**: [Check out the demo on Huggingface Spaces](https://huggingface.co/spaces/hkab/rnnt-whisper-encoder)
