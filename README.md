@@ -49,6 +49,21 @@ Training an RNN-T model is highly GPU-intensive. To train using this repository 
 
 Two notebooks in the `notebooks` folder will guide you through the process.
 
+### 📊 Performance
+
+| Model                   | WER on VIVOS (760 samples) | WER on CM17 (1274 samplse) |
+|-------------------------|--------------|-------------|
+| RNNT Offline            | 0.1497       | 0.0657      |
+| RNNT Online             | 0.1521       | 0.1354      |
+| RNNT Online ONNX (FP32) | 0.1454       | 0.1237      |
+| RNNT Online ONNX (INT8) | 0.1945       | 0.2343      |
+| Whisper-small           | 0.2389       | 0.2956(*)   |
+| Whisper-large-v3-turbo  | 0.094        | 0.1963(*)   |
+
+We use [Vinorm](https://github.com/v-nhandt21/Vinorm) for transcript normalization.
+
+(*) Compare `Whisper-small` and `Whisper-large-v3-turbo` with others is not fair on CM17 since it's might not be trained on CM17, but we included it anyway.
+
 ## 🤝 Contributing
 
 We welcome any contributions! Feel free to open issues or submit pull requests to improve this project.
