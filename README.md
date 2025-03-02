@@ -45,6 +45,7 @@ Training an RNN-T model is highly GPU-intensive. To train using this repository 
 2. **Prepare Background Noise for Augmentation**: Enhance your training data with background noise from sources like [AudioSet](https://research.google.com/audioset/download.html), [MUSAN](https://www.openslr.org/17/), and [FSDnoisy18k](https://zenodo.org/records/2529934). Set the path to these datasets in `BG_NOISE_PATH`.
 3. **Get Pretrained Encoder Weights**: Download the Whisper weights from [here](https://github.com/openai/whisper/blob/main/whisper/__init__.py) to `./weights` and then run `python3 export_encoder.py` to extract the encoder weight for our use. Finally, set the encoder path to `PRETRAINED_ENCODER_WEIGHT`.
 4. **Adjust Parameters**: Customize parameters related to the optimizer, scheduler, batch size, number of workers, and more to suit your needs in `constants.py`. 
+5. Run `python3 train.py`
 
 ### ⚡ Inference & ONNX Export
 
