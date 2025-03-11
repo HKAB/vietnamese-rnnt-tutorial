@@ -4,6 +4,7 @@ import torch
 class Decoder(nn.Module):
     def __init__(self, vocab_size=1024, embed_dim=768, hidden_dim=768):
         super().__init__()
+        self.hidden_dim = hidden_dim
         self.embedding = nn.Embedding(vocab_size, embed_dim)
         self.rnn = nn.GRU(embed_dim, hidden_dim, batch_first=True)
     
